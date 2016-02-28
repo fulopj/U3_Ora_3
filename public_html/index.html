@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>JQuery Gyakorlas</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="js/jquery-2.2.0.min.js" type="text/javascript"></script>
+    </head>
+    
+    <body>
+        <div id="Elso">
+            <ul id="Felsorolas_1">
+                <li>1. Pont</li>
+                <li>2. Pont</li>
+                <li>3. Pont</li>
+                <li>4. Pont</li>
+                <li>5. Pont</li>
+                <li>6. Pont_</li>
+                <li>7. Pont</li>
+                <li>8. Pont_</li>
+                <li>9. Pont</li>
+            </ul>
+        
+        </div>
+        
+        <div id="Masodik">
+            <p>Közvetlen div-ben lévő p1</p>
+            <p>Közvetlen div-ben lévő p2</p>
+            <p>Közvetlen div-ben lévő p3</p>
+            <ul>
+                <li>Első Elem</li>
+                <li>
+                    <p>Felsoroláson belüli p elem</p>
+                </li>
+            </ul>
+            <p>Közvetlen div-ben lévő p4</p>
+        </div>
+        
+        <script type="text/javascript">
+            //GYEREKEK
+            //1. Feladat: 
+            //Kérdezzük le a Felsorolas_1 id-val rendelkező Felsorolás első li elemét
+            //és írjuk ki a szöveget a konzolra
+            console.log ("1. Feladat: ");
+            console.log ($("#Felsorolas_1 li:first-child").text());
+            
+            //2. Feladat:
+            //Kérdezzük le a Felsorolas_1 id-val rendelkező felsorolás utolsó li elemét
+            //és írjuk ki a szöveget a konzolra
+            console.log ("2. Feladat: ");
+            console.log ($("#Felsorolas_1 li:last-child").text());
+            
+            //3. Feladat
+            //Kérdezzük le a Felsorolas_1 id-val rendelkező felsorolás megadott számú li elemét
+            //és írjuk ki a szöveget a konzolra
+            console.log ("3. Feladat: ");
+            console.log ($("#Felsorolas_1 li:nth-child(5)").text());
+            
+            //TARTALOM
+            //4. Feladat:
+            //Írassuk ki annak a li elemnek a tartalmát, amelynek a szöveget tartalmazza a 
+            //Pont_ részt
+            console.log ("4. Feladat: ");
+            $("#Felsorolas_1 li:contains('Pont_')").each(
+                function (index) {
+                    console.log (index + ". elem: " + $(this).text());
+                }
+            );
+    
+            //  Üres li elemek lekérdezése: "#Felsorolas_1 li:empty"
+            //  Olyan li elemek lekérdezése, amelyek tartalmaznak p HTML elemet: "#Felsorolas_1 li:has(p)"
+            
+            //FORM-ra vonatkozó keresések (Főleg jelölőnégyzet esetén hasznos):
+            //  Bejelölt elemek lekérdezése "input:checked"
+            //  Lekapcsolt (szürke) elemek lekérdezése: "input:disabled"
+            //  Engedélyezett (aktív) elemek lekérdezése: "input:enabled"
+            
+            // Olyan elem lekérdezése, amelyiken rajta van a fókusz (inkább beviteli mező esetén): "input:focus"
+            // Lenyíló lista esetén, hogy melyik elem van kiválasztva: "select option:selected"
+            
+            //LÁTHATÓSÁG-ra vonatkozó keresések:
+            //  Rejtett input mezők keresése a dokumentumban: "input:hidden"
+            //  Látható input mezők keresése a dokumentumban: "input:visible"
+            
+            //HIERARCHIA keresések:
+            //5. Feladat:
+            //Írassuk ki a konzolra a Masodik div-ben lévő p elemeket, azokat is, amelyek 
+            //a felsorolásban vannak
+            console.log ("5. Feladat: ");
+            $("#Masodik p").each(
+                    function (index) {
+                        console.log (index + ". elem: " + $(this).text());
+                    }
+            );
+    
+            //6. Feladat:
+            //Írassuk ki a konzolra a Masodik div-ben lévő p elemeket, de azok ne jelenjenek meg, amelyek a
+            //a felsorolásban vannak
+            console.log ("6. Feladat: ");
+            $("#Masodik>p").each(
+                    function (index) {
+                        console.log (index + ". elem: " + $(this).text());
+                    }
+            );
+        </script>
+    </body>
+</html>
